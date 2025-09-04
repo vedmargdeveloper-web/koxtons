@@ -8,13 +8,10 @@
 
 @section('og-url', current_url())
 @section('og-type', 'Blog')
-@section('og-title', $blog ? $blog->metatitle : '')
+@section('og-title', $blog ? ($blog->metatitle ?? $blog->title) : '')
 @section('og-content', $blog ? $blog->metadescription : '')
 @section('og-image-url', $image_url)
-
 @endif
-
-
 @section('content')
 
 

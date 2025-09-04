@@ -8,7 +8,8 @@
 
 @section('og-url', current_url())
 @section('og-type', 'product')
-@section('og-title', $product ? $product->title : '')
+{{-- @section('og-title', $product ? $product->title : '') --}}
+@section('og-title', $product ? ($product->metatitle ?? $product->title) : '')
 @section('og-content', $product ? $product->excerpt : '')
 @section('og-image-url', $image_url)
 

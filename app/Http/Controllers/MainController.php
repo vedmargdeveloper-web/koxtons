@@ -388,6 +388,10 @@ class MainController extends Controller
 
     public function action(Request $request, $slug)
     {
+         if (session()->has('original_slug')) {
+        $slug = session('original_slug');
+        session()->forget('original_slug'); // cleanup
+    }
 
         if ($page = Post::where(['slug' => $slug, 'type' => 'page', 'status' => 'publish'])->first()) {
 

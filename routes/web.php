@@ -485,6 +485,8 @@ Route::get('order/success/{id}', 'OrderController@success')->name('order.success
 
 Route::get('checkout', 'CheckoutController@index')->name('checkout');
 
+// web.php
+// Route::get('/newblogs', [MainController::class, 'blogs'])->name('newblogs');
 
 
 Route::get('wishlist', 'CookieController@index');

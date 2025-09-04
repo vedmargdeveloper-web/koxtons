@@ -12,8 +12,9 @@ class ProductMrpController extends Controller
 {
       public function index()
 {
+    $title = 'Product-MRP';
     $productMrps = ProductMrp::orderBy('id', 'desc')->paginate(10); 
-    return view('gift.admin.product_mrp.index', compact('productMrps'));
+    return view('gift.admin.product_mrp.index', compact('productMrps','title'));
 }
 
 
@@ -22,7 +23,8 @@ class ProductMrpController extends Controller
      */
     public function create()
     {
-        return view('gift.admin.product_mrp.create');
+         $title = 'Add Product-MRP';
+        return view('gift.admin.product_mrp.create', compact('title'));
     }
 
     /**
@@ -62,7 +64,8 @@ class ProductMrpController extends Controller
      */
     public function edit(ProductMrp $productMrp)
     {
-        return view('gift.admin.product_mrp.edit', compact('productMrp'));
+         $title = 'Add Product-MRP';
+        return view('gift.admin.product_mrp.edit', compact('productMrp','title'));
     }
 
     /**
