@@ -2,7 +2,7 @@
 
 namespace App\Imports;
 
-use App\Model\ProductMrp;
+use App\model\ProductMrp;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 use Carbon\Carbon;
