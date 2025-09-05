@@ -87,6 +87,8 @@ class PostController extends Controller
         $post->metakey = $request->metakey;
         $post->metatitle = $request->metatitle;
         $post->metadescription = $request->metadescription;
+        $post->feature_image_alt = $request->feature_image_alt;
+        
         $post->save();
         LogsModel::create(['user_id' => Auth::id(),'remark'=>'Create Post','status'=>'post', 'working_id' => $post->id]);
 
@@ -170,6 +172,7 @@ class PostController extends Controller
                         'metakey' => $request->metakey,
                         'metatitle' => $request->metatitle,
                         'metadescription' => $request->metadescription,
+                        'feature_image_alt' => $request->feature_image_alt,
                         // 'feature_image' => $request->hasFile('feature_image') ? $this->upload( $request->file('feature_image') ) : $request->filename
                         'feature_image' => $request->hasFile('feature_image') ? $this->upload( $request->file('feature_image') ) : $request->filename
 

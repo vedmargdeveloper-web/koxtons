@@ -88,6 +88,14 @@
 								<span class="label-warning">{{ $errors->first('content') }}</span>
 								@endif
 							</div>
+							<div class="form-group">
+								<label>FAQ</label>
+								<span>(Frequently Asked Questions)</span>
+								<textarea class="form-control texteditor" name="faq" rows="5" placeholder="FAQ">{{ old('faq') ? old('faq') : $product->faq }}</textarea>
+								@if( $errors->has('faq') )
+									<span class="text-warning">{{ $errors->first('faq') }}</span>
+								@endif
+							</div>
 
 							<div class="col-md-12" style="display: none">
 								<div class="form-group">
@@ -224,28 +232,36 @@
 												@endif
 												
 											</div>
+											
 											<div class="form-group">
 												<div class="row">
 													<div class="col-md-4 figure-img">
-														<img class="img-thumbnail" src="{{ asset( 'public/'. product_file( thumb( $product->feature_image, config('filesize.medium.0'), config('filesize.medium.1') ) ) ) }}">
+														<img class="img-thumbnail" src="{{ asset( 'public/'. product_file( thumb( $product->feature_image, config('filesize.medium.0'), config('filesize.medium.1') ) ) ) }}" alt="{{ $product->feature_image ?? 'Feature Image' }}">
 														<input type="hidden" name="feature_image" value="{{ $product->feature_image }}">
 														<a role="button" class="removeImage"><span class="fa fa-close"></span></a>
 													</div>
 												</div>
 											</div>
+											<div class="form-group mb-3">
+												<label>Feature Image Alt</label>
+												<input type="text" value="{{ old('feature_image_alt') ? old('feature_image_alt') : $product->feature_image_alt }}" placeholder="Example: Feature Image" name="feature_image_alt" data-role="featurealtinput" class="form-control" />
+												@if( $errors->has('feature_image_alt') )
+													<span class="label-warning">{{ $errors->first('feature_image_alt') }}</span>
+												@endif
+											</div>
 										</div>
 
 									</div>
 
-				<!-- <div class="col-lg-4 col-md-4 float-left">
-				
-					<div class="form-group mb-3">
+						<!-- <div class="col-lg-4 col-md-4 float-left">
 						
-						<button class="btn btn-primary" name="draft" value="inactive">Draft</button>
-					</div>
-				
-					
-				</div> -->
+							<div class="form-group mb-3">
+								
+								<button class="btn btn-primary" name="draft" value="inactive">Draft</button>
+							</div>
+						
+							
+						</div> -->
 			</div>
 
 
@@ -436,10 +452,16 @@
 															<input type="text" readonly  style="display: none;" name="su_code_[]" value="{{$color_meta[$key]->su_code ? $color_meta[$key]->su_code : ''}}" class="form-control">
 														</div>
 													</div>
-													<div class="col-md-4">
+													
+													<div class="col-md-2">
 														<div class="form-group">
 															
 															<input type="hidden" name="images_old" class="form-control" value="{{$color_meta[$key]->images ? $color_meta[$key]->images : ''}}">
+														</div>
+													</div>
+													<div class="col-md-2">
+														<div class="form-group">
+															<input type="text" name="color_image_alt[]" value="{{$color_meta[$key]->color_image_alt ? $color_meta[$key]->color_image_alt : ''}}" class="form-control" placeholder="Color Image Alt">
 														</div>
 													</div>
 													<?php $set_img = $color_meta[$key]->images ? json_decode($color_meta[$key]->images) : ''; ?>
@@ -450,6 +472,7 @@
 														</div>
 														@endforeach
 													</div>
+
 													<div class="col-md-2">
 														<button type="button" class="remove-color-sucode" data-id="{{$color_meta[$key]->id}}" data-color="{{$value->color}}" data-pid="{{$product->id}}" ><i class="fa fa-times"></i></button>
 													</div>
@@ -938,8 +961,11 @@
 											</div>
 
 											<div class="col-lg-3">
-												<input type="file" placeholder="Custome Size Image" name="custom_size_image[]" multiple class="mb-1 form-control">
+												<input type="file" placeholder="Custome Size Image" name="custom_size_image[]" multiple class="mb-1 form-control"  >
 												
+											</div>
+											<div class="col-lg-2">
+												<input type="text" placeholder="Custom Size image Alt" value="{{ isset(old('custom_size_image_alt')[$key]) ? old('custom_size_image_alt')[$key] : '' }}" name="custom_size_image_alt[]" class="mb-1 form-control">
 											</div>
 
 											@if( $key > 0 )
@@ -961,7 +987,7 @@
 									<div class="form-group">
 										<div class="row">
 											<?php $label = $product->product_attribute->where('attribute_name', 'custom_size')->first(); ?>
-											<div class="col-lg-3">
+											<div class="col-lg-2">
 												<input type="text" placeholder="Label" name="label" value="{{ isset($label->label) ? $label->label : '' }}" class="form-control">
 											</div>
 											<div class="col-lg-2">
@@ -973,7 +999,10 @@
 											<div class="col-lg-2">
 												<input type="number" placeholder="Stock" value="{{ isset($json->stock) ? $json->stock:''  }}" name="custom_size_stock[]" class="mb-1 form-control">
 											</div>
-											<div class="col-lg-3">
+											<div class="col-lg-2">
+												<input type="text" placeholder="Custom Size image Alt" value="{{ $json->custom_size_image_alt ?? '' }}" name="custom_size_image_alt[]" class="mb-1 form-control">
+											</div>
+											<div class="col-lg-2">
 												<input type="file" placeholder="Custom Size Image" name="custom_size_image[]" class="mb-1 form-control">
 
 												@if(isset($json->size_image) && !empty($json->size_image))
@@ -985,6 +1014,7 @@
 												<input type="hidden" name="old_custom_size_image[]" value="">
 												@endif
 											</div>
+											
 
 											@if($key > 0)
 											<a class="remove-size-field remove-btn"><i class="fa fa-close"></i></a>
@@ -1032,9 +1062,16 @@
 								@endif
 							</div>
 							<div class="form-group">
+								<label>Gallery image Alt</label>
+								
+								 <input type="text" value="{{ old('file_alt') ? old('file_alt') : $product->file_alt }}" name="file_alt" placeholder="Files Alt" class="form-control">
+									@if($errors->has('file_alt'))
+										<span class="label-warning">{{ $errors->first('file_alt') }}</span>
+									@endif
+								
+							</div>
+							<div class="form-group">
 								<div class="row">
-
-									
 									@if( isset( $product->media[0]) )
 									@foreach( $product->media as $media )
 									@if( $media->type === 'gallery' )
@@ -1042,7 +1079,7 @@
 									@foreach( $files as $file )
 									{{-- @if( $file->type === 'gallery' ) --}}
 									<div class="col-md-2 mb-1 figure-img">
-										<img class="img-thumbnail" src="{{ asset('public/' . product_file( thumb( $file, config('filesize.thumbnail.0'), config('filesize.thumbnail.1') ) ) ) }}">
+										<img class="img-thumbnail" src="{{ asset('public/' . product_file( thumb( $file, config('filesize.thumbnail.0'), config('filesize.thumbnail.1') ) ) ) }}" alt="{{ $product->file_alt }}">
 										<input type="hidden" name="gallery[]" value="{{ $file }}">
 										<a role="button" class="removeImage"><span class="fa fa-close"></span></a>
 									</div>

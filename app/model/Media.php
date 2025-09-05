@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Media extends Model
 {
-    protected $fillable = ['product_id', 'type', 'files'];
+    protected $fillable = ['product_id', 'type', 'files','file_alt'];
 }

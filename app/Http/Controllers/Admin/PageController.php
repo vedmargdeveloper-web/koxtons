@@ -78,6 +78,7 @@ class PageController extends Controller
         $post->slug = slug( $request->title );
         $post->type = $request->type;
         $post->feature_image = $request->hasFile('feature_image') ? $this->upload( $request->file('feature_image') ) : null;
+        $post->feature_image_alt = $this->feature_image_alt;
         $post->status = $this->status;
         $post->metakey = $request->metakey;
         $post->metatitle = $request->metatitle;
@@ -165,6 +166,7 @@ class PageController extends Controller
                         'metakey' => $request->metakey,
                         'metatitle' => $request->metatitle,
                         'metadescription' => $request->metadescription,
+                        'feature_image_alt'=>$request->feature_image_alt,
                         'feature_image' => $request->hasFile('feature_image') ? $this->upload( $request->file('feature_image') ) : $request->filename
                     );
         $post->fill($array)->save();

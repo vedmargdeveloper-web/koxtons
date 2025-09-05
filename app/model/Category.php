@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    protected $fillable = ['name', 'slug', 'parent', 'description', 'feature_image','order_by','product_priority_desktop','product_priority_mobile', 'status','metatitle','metadescription','metakey','postmeta'];
+    protected $fillable = ['name', 'slug', 'parent', 'description', 'feature_image','feature_image_alt','order_by','product_priority_desktop','product_priority_mobile', 'status','metatitle','metadescription','metakey','postmeta'];
 
     public function productMeta() {
 		return $this->hasMany('App\model\ProductMeta');

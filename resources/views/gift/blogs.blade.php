@@ -57,9 +57,9 @@
                                                 <figure>
                                                     <div class="img-fluid">
                                                         @if($row->feature_image)
-                                                        <img src="{{ asset( 'public/' . post_file( thumb( $row->feature_image, 260, 200 ) ) ) }}" alt="{{ $row->title }}">
+                                                        <img src="{{ asset( 'public/' . post_file( thumb( $row->feature_image, 260, 200 ) ) ) }}" alt="{{$row->feature_image_alt ?? $row->title }}">
                                                         @else
-                                                            <img src="https://via.placeholder.com/200x200?text={{ $row->title }}" alt="{{ $row->title }}">
+                                                            <img src="https://via.placeholder.com/200x200?text={{ $row->title }}" alt="{{ $row->feature_image_alt ?? $row->title }}">
                                                         @endif
                                                     </div>
                                                 </figure>

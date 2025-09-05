@@ -105,6 +105,13 @@
 								<span class="label-warning">{{ $errors->first('feature_image') }}</span>
 							@endif
 						</div>
+						<div class="form-group">
+							<label>Feature Image Alt</label>
+							<input type="text" name="feature_image_alt" class="form-control">
+							@if( $errors->has('feature_image_alt') )
+								<span class="label-warning">{{ $errors->first('feature_image_alt') }}</span>
+							@endif
+						</div>
 					</div>
 				</div>
 			</div>

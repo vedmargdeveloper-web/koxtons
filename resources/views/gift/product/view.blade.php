@@ -160,16 +160,13 @@
                                     </div>
                                     <!-- Begin Product Images Slider -->
                                     <div class="main-img-slider">
-
-
-
                                         <figure>
                                             <a href="{{ asset('public/' . product_file(thumb($product->feature_image, config('filesize.large.0'), config('filesize.large.1')))) }}"
                                                 data-size="800x800">
                                                 <img class="lazyload"
                                                     data-src="{{ asset('public/' . product_file(thumb($product->feature_image, config('filesize.large.0'), config('filesize.large.1')))) }}"
                                                     data-lazy="{{ asset('public/' . product_file(thumb($product->feature_image, config('filesize.large.0'), config('filesize.large.1')))) }}"
-                                                    alt="" />
+                                                    alt="{{ $product->feature_image_alt ?? 'Feature Image'}}" />
                                             </a>
                                         </figure>
 
@@ -187,7 +184,7 @@
                                                                 <img class="lazyload"
                                                                     data-src="{{ asset('public/' . product_file(thumb($file, config('filesize.large.0'), config('filesize.large.1')))) }}"
                                                                     data-lazy="{{ asset('public/' . product_file(thumb($file, config('filesize.large.0'), config('filesize.large.1')))) }}"
-                                                                    alt="image 1" />
+                                                                    alt="{{ $product->file_alt  ?? 'Gallery  Image'}}" />
                                                             </a>
                                                         </figure>
                                                     @endforeach
@@ -200,7 +197,7 @@
                                     <!-- Begin product thumb nav -->
                                     <ul class="thumb-nav product-gallery-slider-div">
                                         <li>
-                                            <img class="lazyload" src="{{ $image_url }}" alt="image 1" />
+                                            <img class="lazyload" src="{{ $image_url }}" alt="{{ $product->file_alt  ?? 'Product Gallery Image Slider'}}" />
                                         </li>
                                         @if ($product->media && count($product->media) > 0)
                                             @foreach ($product->media as $media)
@@ -210,7 +207,7 @@
                                                         <li>
                                                             <img class="lazyload"
                                                                 src="{{ asset('public/' . product_file(thumb($file, config('filesize.thumbnail.0'), config('filesize.thumbnail.1')))) }}"
-                                                                alt="image 1" />
+                                                                alt="{{ $product->file_alt ?? 'Gallery Image' }}" />
                                                         </li>
                                                     @endforeach
                                                 @endif
@@ -1400,7 +1397,14 @@
                                         href="#tab_reviews" role="tab" data-toggle="tab">Reviews
                                         (<span>{{ count($reviews) }}</span>)</a>
                                 </li>
-
+                                @if ($product->faq)
+                                    <li class="nav-item">
+                                        <a class="{{ !$product->faq ? 'active' : '' }} faq {{ Session::has('faq_err') || Session::has('faq_msg') ? 'active' : '' }}"
+                                            href="#tab_faq" role="tab" data-toggle="tab">
+                                            FAQ
+                                        </a>
+                                    </li>
+                                @endif
                                
                             </ul>
 
@@ -1568,6 +1572,17 @@
                                         </div>
                                     </div>
                                 </div>
+                               @if ($product->faq)
+                                    <div id="tab_faq" role="tabpanel"
+                                        class="tab-pane fade {{ Session::has('faq_err') || count($errors) || Session::has('faq_msg') ? 'in active' : '' }}">
+                                        <div id="tab_faq-coll" class="shop_description product-collapser">
+                                            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                                                <?php echo ucfirst($product->faq); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+
                             </div>
                         </div>
                     </div>

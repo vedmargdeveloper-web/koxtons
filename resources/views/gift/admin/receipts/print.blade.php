@@ -90,11 +90,11 @@
 <button onclick="window.print()" class="print-btn">Print</button>
 
 @php
-    $companyName = App\Model\Meta::where('meta_name', 'receipt_company_name')->value('meta_value') ?? 'KOXTONS SPORTS EQUIPMENTS (P) LIMITED';
-    $companyAddress = App\Model\Meta::where('meta_name', 'receipt_address')->value('meta_value') ?? '3/11, Mohkampur Industrial Area, Phase-I, Delhi Road, Meerut-250002 (UP), India';
-    $customerCare = App\Model\Meta::where('meta_name', 'customer_care')->value('meta_value') ?? '0121-2528994';
-    $companyEmail = App\Model\Meta::where('meta_name', 'company_email')->value('meta_value') ?? 'sales@koktons.com';
-    $companyLogo = App\Model\Meta::where('meta_name', 'company_logo')->value('meta_value');
+    $companyName = App\model\Meta::where('meta_name', 'receipt_company_name')->value('meta_value') ?? 'KOXTONS SPORTS EQUIPMENTS (P) LIMITED';
+    $companyAddress = App\model\Meta::where('meta_name', 'receipt_address')->value('meta_value') ?? '3/11, Mohkampur Industrial Area, Phase-I, Delhi Road, Meerut-250002 (UP), India';
+    $customerCare = App\model\Meta::where('meta_name', 'customer_care')->value('meta_value') ?? '0121-2528994';
+    $companyEmail = App\model\Meta::where('meta_name', 'company_email')->value('meta_value') ?? 'sales@koktons.com';
+    $companyLogo = App\model\Meta::where('meta_name', 'company_logo')->value('meta_value');
     $logoPath = $companyLogo ? asset('public/' . public_file() . $companyLogo) : null;
 @endphp
 

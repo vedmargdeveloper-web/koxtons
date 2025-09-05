@@ -82,6 +82,7 @@ class OurClientController extends Controller
         $slide->title = $request->title;
         $slide->content = '';
         $slide->image = $image;
+        $slide->image_alt = $request->image_alt;
         $slide->status = $request->submit ? 'active' : 'inactive';
         if( $slide->save() ){
             LogsModel::create(['user_id' => Auth::id(),'remark'=>'Update OurClient','status'=>'OurClient', 'working_id' => $slide->id]);
@@ -168,6 +169,7 @@ class OurClientController extends Controller
         $array['title'] = $request->title;
         $array['content'] = '';
         $array['image'] = $image;
+        $array['image_alt'] = $request->image_alt;
         $array['status'] = $request->submit ? 'active' : 'inactive';
         if( $slide->fill($array)->save() )
 

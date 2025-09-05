@@ -122,6 +122,10 @@ class ProductController extends Controller
         $product->metatitle = $request->metatitle;
         $product->metadescription = $request->metadescription;
         $product->postmeta = $request->postmeta;
+        $product->faq = $request->faq;
+        $product->feature_image_alt = $request->feature_image_alt;
+        $product->file_alt = $request->file_alt;
+        
 
 
         $product->save();
@@ -271,6 +275,7 @@ class ProductController extends Controller
                             'price' => isset($request->custom_size_price[$key]) ? $request->custom_size_price[$key] : null,
                             'stock' => isset($request->custom_size_stock[$key]) ? $request->custom_size_stock[$key] : null,
                             'size_image' => isset($files_size_color) ? json_encode($files_size_color) : null,
+                            'custom_size_image_alt' => isset($request->custom_size_image_alt[$key]) ? $request->custom_size_image_alt[$key] : null,
                         ])
                     );
                     ProductAttributeMeta::create($custom_size);
@@ -289,7 +294,7 @@ class ProductController extends Controller
         }
         if( count( $files ) > 0 ) {
             $files = implode(',', $files);
-            Media::create(['product_id' => $product->id, 'type' => 'gallery', 'files' => $files]);
+            Media::create(['product_id' => $product->id, 'type' => 'gallery', 'files' => $files] );
         }
 
         if( $request->video ) {
@@ -317,7 +322,8 @@ class ProductController extends Controller
                     'product_id' => $product->id,
                     'color' => $value1 ? $value1 : '',
                     'su_code'=> $request->su_code ? $_POST['su_code'][$key1] : '',
-                    'images' => $color_images
+                    'images' => $color_images,
+                     'color_image_alt' => $request->color_image_alt ?? '',
                 ];
                 product_meta_colors::create( $meta1 );
             endforeach;
@@ -480,12 +486,34 @@ class ProductController extends Controller
         else if( $request->video )
             Media::create(['product_id' => $product_id, 'type' => 'video', 'files' => $request->video]);
     }
+   
+
+
+if ($request->video) {
+    if ($id = Media::where(['product_id' => $product_id, 'type' => 'video'])->value('id')) {
+        Media::where('id', $id)->update([
+            'files'    => $request->video,
+            'file_alt' => $request->file_alt
+        ]);
+    } else {
+        Media::create([
+            'product_id' => $product_id,
+            'type'       => 'video',
+            'files'      => $request->video,
+            'file_alt'   => $request->file_alt
+        ]);
+    }
+}
+
     
     
     $array['category_id'] = $request->category[0];
     $array['title'] = $request->title;
     $array['slug'] = slug( $request->slug );
     $array['content'] = $request->content;
+    $array['faq'] = $request->faq;
+    $array['feature_image_alt'] = $request->feature_image_alt;
+    $array['file_alt'] = $request->file_alt;
     $array['short_content'] = $request->short_content;
     $array['excerpt'] = get_excerpt( $request->content, 500 );
     if( $request->is_feature )
@@ -692,7 +720,8 @@ class ProductController extends Controller
                         'name' => strtolower($s),
                         'price' => isset($request->custom_size_price[$key]) ? $request->custom_size_price[$key] : null,
                         'stock' => isset($request->custom_size_stock[$key]) ? $request->custom_size_stock[$key] : null,
-                        'size_image' => $files_size_color
+                        'size_image' => $files_size_color,
+                        'custom_size_image_alt' => isset($request->custom_size_image_alt[$key]) ? $request->custom_size_image_alt[$key] : null,
                     ])
                 );
 
@@ -739,11 +768,14 @@ class ProductController extends Controller
                     'product_id' => $product_id,
                     'color' => $value1 ? $value1 : '',
                     'su_code'=> $request->su_code ? $_POST['su_code'][$key1] : '',
-                    'images' => $color_images
+                    'images' => $color_images,
+                    'color_image_alt' => $request->color_image_alt ?? '',
                 ];
                 product_meta_colors::create( $meta1 );
             endforeach;
         }
+       
+
     }
 
     return redirect()->back()->with('product_msg', 'Product updated successfully ID'.$pro->product_id);

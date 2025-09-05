@@ -61,9 +61,9 @@
                             <div class="blog-box">
                                 <div class="blog-img-wrap">
                                     @if($blog->feature_image)
-                                        <img src="{{ asset( 'public/' . post_file( $blog->feature_image ) ) }}" alt="{{ $blog->title }}" />
+                                        <img src="{{ asset( 'public/' . post_file( $blog->feature_image ) ) }}" alt="{{ $blog->feature_image_alt ?? $blog->title }}" />
                                     @else
-                                        <img src="https://via.placeholder.com/200x200?text={{ $blog->title }}" alt="">
+                                        <img src="https://via.placeholder.com/200x200?text={{ $blog->title }}" alt="{{ $blog->feature_image_alt ??  $blog->title }}">
                                     @endif
                                 </div>
                                 <div class="blog-box-content">
@@ -212,9 +212,9 @@
                                     <li>
                                         <a class="product-img" href="#">
                                             @if($row->feature_image)
-                                                <img src="{{ asset( 'public/' . post_file( thumb( $row->feature_image, 260, 200 ) ) ) }}" alt="{{ $row->title }}"/>
+                                                <img src="{{ asset( 'public/' . post_file( thumb( $row->feature_image, 260, 200 ) ) ) }}" alt="{{ $row->feature_image_alt ?? $row->title }}"/>
                                             @else
-                                                <img src="https://via.placeholder.com/260x200?text={{ $row->title }}" alt="">
+                                                <img src="https://via.placeholder.com/260x200?text={{ $row->title }}" alt="{{ $row->feature_image_alt  ?? $row->title }}">
                                             @endif
                                         </a>
                                         <div class="product-content">

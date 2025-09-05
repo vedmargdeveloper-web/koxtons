@@ -108,6 +108,7 @@ class SliderController extends Controller
         $slide->see_more = $request->see_more;
         $slide->see_more_link = $request->see_more_link;
         $slide->image = $image;
+        $slide->image_alt = $request->image_alt;
         $slide->position = $request->position;
         $slide->description = $request->description;
         $slide->status = $request->submit ? 'active' : 'inactive';
@@ -269,6 +270,7 @@ class SliderController extends Controller
         $array['position'] = $request->position;
         $array['description'] = $request->description;
         $array['image'] = $image;
+        $array['image_alt'] = $request->image_alt;
         $array['status'] = $request->submit ? 'active' : 'inactive';
         if( $slide->fill($array)->save() )
 

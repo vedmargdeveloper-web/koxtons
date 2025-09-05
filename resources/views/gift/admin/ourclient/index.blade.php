@@ -52,6 +52,13 @@
 						<span class="text-danger">{{ $errors->first('file') }}</span>
 					@endif
 				</div>
+				<div class="form-group">
+					<label>Image Alt</label>
+					<input type="text" name="image_alt" class="form-control">
+					@if( $errors->has('image_alt') )
+						<span class="label-warning">{{ $errors->first('image_alt') }}</span>
+					@endif
+				</div>
 
 				<button class="btn btn-primary" value="active" name="submit">Submit</button>
 				<button class="btn btn-primary" value="inactive" name="draft">Draft</button>
@@ -93,7 +100,7 @@
 										</li>
 									</ul>
 								</td>
-								<td><img class="img-thumbnail" src="{{ asset( 'public/' . public_file( thumb( $row->image, 130, 140 ) ) ) }}"></td>
+								<td><img class="img-thumbnail" src="{{ asset( 'public/' . public_file( thumb( $row->image, 130, 140 ) ) ) }}" alt="{{ $row->image_alt }}"></td>
 								<td>{{ ucfirst($row->status) }}</td>
 								<td>{{ date('d, M Y H:i', strtotime($row->created_at ) ) }}</td>
 							</tr>

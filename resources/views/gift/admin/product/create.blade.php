@@ -77,6 +77,16 @@
 									<span class="label-warning">{{ $errors->first('content') }}</span>
 								@endif
 							</div>
+							
+							<div class="form-group">
+								<label>FAQ</label>
+								<span>(Frequently Asked Questions)</span>
+								<textarea class="form-control texteditor" name="faq" rows="5" placeholder="FAQ">{{ old('faq') }}</textarea>
+								@if( $errors->has('faq') )
+									<span class="text-warning">{{ $errors->first('faq') }}</span>
+								@endif
+							</div>
+						
 
 							<div class="col-md-12" style="display: none">
 								<div class="form-group">
@@ -177,6 +187,13 @@
 									<span class="label-warning">{{ $errors->first('file') }}</span>
 								@endif
 		                	</div>
+							<div class="form-group mb-3">
+								<label>Feature Image Alt</label>
+								<input type="text" value="{{ old('feature_image_alt') }}" placeholder="Example: Feature Image" name="feature_image_alt" data-role="featurealtinput" class="form-control" />
+								@if( $errors->has('feature_image_alt') )
+									<span class="label-warning">{{ $errors->first('feature_image_alt') }}</span>
+								@endif
+							</div>
 						</div>
 
 					</div>
@@ -898,6 +915,14 @@
 										<span class="label-warning">{{ $errors->first('video') }}</span>
 									@endif
 			                	</div>
+								<div class="form-group">
+								<label>Gallery image Alt</label>
+								 <input type="text" value="" name="file_alt" placeholder="Files Alt" class="form-control">
+									@if($errors->has('file_alt'))
+										<span class="label-warning">{{ $errors->first('file_alt') }}</span>
+									@endif
+								
+							</div>
 			                </div>
 
 			                <div class="bhoechie-tab-content" id="">

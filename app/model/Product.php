@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     
-	protected $fillable = ['product_id','category_id', 'user_id', 'type', 'title', 'slug','short_content', 'content', 'excerpt', 'payment_option', 'tags', 'brand', 'feature_image', 'price','product_code', 'seller_price', 'price_range', 'mrp', 'buy_also', 'shipping_charge', 'tax', 'gst', 'discount', 'quantity', 'available','delivery_time', 'status', 'remark','metatitle','metakey','metadescription','postmeta'];
+	protected $fillable = ['product_id','category_id', 'user_id', 'type', 'title', 'slug','short_content', 'content','faq', 'excerpt', 'payment_option', 'tags', 'brand', 'feature_image','feature_image_alt', 'file_alt','price','product_code', 'seller_price', 'price_range', 'mrp', 'buy_also', 'shipping_charge', 'tax', 'gst', 'discount', 'quantity', 'available','delivery_time', 'status', 'remark','metatitle','metakey','metadescription','postmeta'];
 
 	public function productMeta() {
 		return $this->hasMany('App\model\ProductMeta');

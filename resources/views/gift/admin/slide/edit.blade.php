@@ -116,8 +116,14 @@
 						</div>
 					@endif
 
-
-
+					<div class="form-group">
+						<label>Image Alt</label>
+						<input class="form-control" name="image_alt" rows="3" value="{{ $slide->image_alt }}">
+						@if( $errors->has('image_alt') )
+							<span class="text-danger">{{ $errors->first('image_alt') }}</span>
+						@endif
+				   </div>
+				   
 					<button class="btn btn-primary" value="active" name="submit">Active</button>
 					<button class="btn btn-primary" value="inactive" name="draft">Inactive</button>
 

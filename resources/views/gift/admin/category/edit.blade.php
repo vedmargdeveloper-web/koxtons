@@ -204,9 +204,16 @@
                                     <div class="figure-img mt-3">
                                         <input type="hidden" name="filename" value="{{ $category->feature_image }}">
                                         <img class="img-thumbnail"
-                                            src="{{ asset('public/' . public_file(thumb($category->feature_image, config('filesize.thumbnail.0'), config('filesize.thumbnail.1')))) }}">
+                                            src="{{ asset('public/' . public_file(thumb($category->feature_image, config('filesize.thumbnail.0'), config('filesize.thumbnail.1')))) }}" alt="{{ $category->feature_image_alt ?? $category->name }}">
                                         <a role="button" id="img-remove"><span class="material-icons">clear</span></a>
                                     </div>
+                                @endif
+                            </div>
+                            <div class="form-group">
+                                <label>Feature Image Alt</label>
+                                <input type="text" name="feature_image_alt" class="form-control" value="{{ $category->feature_image_alt }}">
+                                @if( $errors->has('feature_image_alt') )
+                                    <span class="label-warning">{{ $errors->first('feature_image_alt') }}</span>
                                 @endif
                             </div>
 

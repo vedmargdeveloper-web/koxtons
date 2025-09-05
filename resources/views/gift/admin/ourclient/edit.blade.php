@@ -50,9 +50,17 @@
 						@endif
 						@if( $slide->image )
 							<input type="hidden" name="filename" value="{{ $slide->image }}">
-							<img src="{{ asset( 'public/' . public_file( thumb( $slide->image, 130, 140 ) ) ) }}"  alt="{{ $slide->title ?? 'Slide Image' }}">
+							<img src="{{ asset( 'public/' . public_file( thumb( $slide->image, 130, 140 ) ) ) }}"  alt="{{ $slide->image_alt ?? $slide->title }}">
 						@endif
 					</div>
+
+					<div class="form-group">
+					<label>Image Alt</label>
+					<input type="text" name="image_alt" class="form-control" value="{{ $slide->image_alt }}">
+					@if( $errors->has('image_alt') )
+						<span class="label-warning">{{ $errors->first('image_alt') }}</span>
+					@endif
+				</div>
 
 					<button class="btn btn-primary" value="active" name="submit">Submit</button>
 					<button class="btn btn-primary" value="inactive" name="draft">Draft</button>

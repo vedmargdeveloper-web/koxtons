@@ -14,5 +14,5 @@ class product_meta_colors extends Model
      */
      
     protected $table = 'product_meta_colors';
-    protected $fillable = ['product_id', 'color', 'su_code', 'images'];
+    protected $fillable = ['product_id', 'color', 'su_code', 'images', 'color_image_alt'];
 }

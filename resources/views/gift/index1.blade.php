@@ -13,7 +13,7 @@
                 <div class="owl-carousel main-carousel owl-theme">
                 @foreach( $slides as $row )
                   <div class="item">
-                    <img src="{{ asset( 'public/' . public_file( $row->image ) ) }}" alt="{{ $row->title }}">
+                    <img src="{{ asset( 'public/' . public_file( $row->image ) ) }}" alt="{{ $row->image_alt ?? $row->title }}">
                     <h3 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOutDown">
                         {{ $row->title }}
                     </h3>
@@ -81,7 +81,7 @@
                                 <div class="product-img-wrap">
                                     <?php $cat_slug = App\model\Category::where('id', $row->category_id)->value('slug'); ?>
                                     <a href="{{ url('/' .$cat_slug . '/' . $row->slug . '/' . $row->product_id . '?source=home') }}">
-                                        <img src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, 260, 350 ) ) ) }}" alt="{{ $row->title }}">
+                                        <img src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, 260, 350 ) ) ) }}" alt="{{$row->feature_image_alt ??  $row->title }}">
                                         @if( $row->discount )
                                             <div class="sale-label discount">
                                                 <span>{{ $row->discount }}% off</span>
@@ -191,7 +191,7 @@
                                 <div class="product-img-wrap">
                                     <?php $cat_slug = App\model\Category::where('id', $row->category_id)->value('slug'); ?>
                                     <a href="{{ url('/' .$cat_slug . '/' . $row->slug . '/' . $row->product_id . '?source=home') }}">
-                                        <img src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, 260, 350 ) ) ) }}" alt="{{ $row->title }}">
+                                        <img src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, 260, 350 ) ) ) }}" alt="{{ $row->feature_image_alt ??  $row->title }}">
                                         @if( $row->discount )
                                             <div class="sale-label discount">
                                                 <span>{{ $row->discount }}% off</span>
@@ -321,7 +321,7 @@
                                     <div class="product-item-inner">
                                         <div class="product-img-wrap">
                                             <a href="{{ url('/'.$category->slug.'/'.$row->slug.'/'.$row->product_id.'?source=category') }}">
-                                            <img src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, 260, 350 ) ) ) }}" alt="{{ $row->title }}">
+                                            <img src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, 260, 350 ) ) ) }}" alt="{{ $row->feature_image_alt ??  $row->title }}">
                                             @if( $row->discount )
                                                 <div class="sale-label discount">
                                                     <span>{{ $row->discount }}% off</span>
@@ -396,7 +396,7 @@
                                 <div class="product-img-wrap">
                                     <?php $cat_slug = App\model\Category::where('id', $row->category_id)->value('slug'); ?>
                                     <a href="{{ url('/' .$cat_slug . '/' . $row->slug . '/' . $row->product_id . '?source=home') }}">
-                                        <img src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, 260, 350 ) ) ) }}" alt="{{ $row->title }}">
+                                        <img src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, 260, 350 ) ) ) }}" alt="{{$row->feature_image_alt ??  $row->title}}">
                                         @if( $row->discount )
                                             <div class="sale-label discount">
                                                 <span>{{ $row->discount }}% off</span>

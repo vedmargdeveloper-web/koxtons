@@ -33,17 +33,77 @@ $(document).ready(function(){
 	    }
 	});
 
+  // $('body').on('change','.check-color-select',function(event){
+  //   event.preventDefault();
+  //   var dd  = $(this).val().toLowerCase();
+  //   $('.add-new-row').append('<div class="row"><div class="col-md-4"><div class="form-group"><input type="text" value="'+dd+'" name="color[]" class="form-control"></div></div><div class="col-md-4"><div class="form-group"><input type="text" name="su_code[]" class="form-control" placeholder="SU Code"></div></div><div class="col-md-4"><div class="form-group"><input type="file" name="images[]" multiple class="form-control"></div></div></div>')
+  // });
+
+  // $('body').on('change','.check-color-select-update',function(event){
+  //   event.preventDefault();
+  //   var dd  = $(this).val().toLowerCase();
+  //   $('.add-new-row-update').append('<div class="row"><div class="col-md-4"><div class="form-group"><input type="text" value="'+dd+'" name="color[]" class="form-control"></div></div><div class="col-md-4"><div class="form-group"><input type="text" style="display:none" name="su_code[]" class="form-control" placeholder="SU Code"></div></div><div class="col-md-4"><div class="form-group"><input type="file" name="images[]" multiple class="form-control"></div></div></div>')
+  // });
+
   $('body').on('change','.check-color-select',function(event){
     event.preventDefault();
     var dd  = $(this).val().toLowerCase();
-    $('.add-new-row').append('<div class="row"><div class="col-md-4"><div class="form-group"><input type="text" value="'+dd+'" name="color[]" class="form-control"></div></div><div class="col-md-4"><div class="form-group"><input type="text" name="su_code[]" class="form-control" placeholder="SU Code"></div></div><div class="col-md-4"><div class="form-group"><input type="file" name="images[]" multiple class="form-control"></div></div></div>')
-  });
+    $('.add-new-row').append(
+        '<div class="row">' +
+            '<div class="col-md-3">' +
+                '<div class="form-group">' +
+                    '<input type="text" value="'+dd+'" name="color[]" class="form-control">' +
+                '</div>' +
+            '</div>' +
+            '<div class="col-md-3">' +
+                '<div class="form-group">' +
+                    '<input type="text" name="su_code[]" class="form-control" placeholder="SU Code">' +
+                '</div>' +
+            '</div>' +
+            '<div class="col-md-3">' +
+                '<div class="form-group">' +
+                    // '<input type="file" name="images[]" multiple class="form-control">' +
+                    '<input type="file" name="images['+dd+'][]" multiple class="form-control">'+
+                '</div>' +
+            '</div>' +
+            '<div class="col-md-3">' +
+                '<div class="form-group">' +
+                    '<input type="text" name="color_image_alt" class="form-control" placeholder="Color Image Alt">' +
+                '</div>' +
+            '</div>' +
+        '</div>'
+    );
+});
 
-  $('body').on('change','.check-color-select-update',function(event){
+$('body').on('change','.check-color-select-update',function(event){
     event.preventDefault();
     var dd  = $(this).val().toLowerCase();
-    $('.add-new-row-update').append('<div class="row"><div class="col-md-4"><div class="form-group"><input type="text" value="'+dd+'" name="color[]" class="form-control"></div></div><div class="col-md-4"><div class="form-group"><input type="text" style="display:none" name="su_code[]" class="form-control" placeholder="SU Code"></div></div><div class="col-md-4"><div class="form-group"><input type="file" name="images[]" multiple class="form-control"></div></div></div>')
-  });
+    $('.add-new-row-update').append(
+        '<div class="row">' +
+            '<div class="col-md-3">' +
+                '<div class="form-group">' +
+                    '<input type="text" value="'+dd+'" name="color[]" class="form-control">' +
+                '</div>' +
+            '</div>' +
+            '<div class="col-md-3">' +
+                '<div class="form-group">' +
+                    '<input type="text" style="display:none" name="su_code[]" class="form-control" placeholder="SU Code">' +
+                '</div>' +
+            '</div>' +
+            '<div class="col-md-3">' +
+                '<div class="form-group">' +
+                    '<input type="file" name="images[]" multiple class="form-control">' +
+                '</div>' +
+            '</div>' +
+            '<div class="col-md-3">' +
+                '<div class="form-group">' +
+                    '<input type="text" name="color_image_alt" class="form-control" placeholder="Color Image Alt">' +
+                '</div>' +
+            '</div>' +
+        '</div>'
+    );
+});
+
 
   $('body').on('click','.remove-color-sucode',function(event){
         var pid = $(this).data('pid');

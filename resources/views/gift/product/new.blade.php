@@ -117,9 +117,9 @@
                                         <div class="product-image-wrapper">
                                             <a href="{{ route('product.view', [$row->product_category[0]->slug, $row->slug, $row->product_id]) }}">
                                                   <?php if($row->feature_image): ?>
-                                                        <img class="lazyload" data-src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, config('filesize.thumbnail.0'), config('filesize.thumbnail.1') ) ) ) }}" alt="">
+                                                        <img class="lazyload" data-src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, config('filesize.thumbnail.0'), config('filesize.thumbnail.1') ) ) ) }}" alt="{{ $row->feature_image_alt ??  $row->title }}">
                                                         <?php else: ?>
-                                                            <img class="lazyload" data-src="http://via.placeholder.com/350x350?text=Clothing%20Mantra">
+                                                            <img class="lazyload" data-src="http://via.placeholder.com/350x350?text=Clothing%20Mantra" alt="koxtons">
                                                         <?php endif; ?>
                                                 @if( $row->discount )
                                                     <div class="sale-label discount">
@@ -208,7 +208,7 @@
                                         <a href="{{ route('product.view', [$row->product_category[0]->slug, $row->slug, $row->product_id]) }}">
                                             <div class="product-item-inner">
                                                 <div class="product-img-wrap">
-                                                    <img class="lazyload" data-src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, config('filesize.medium.0'), config('filesize.medium.1') ) ) ) }}" alt="" />
+                                                    <img class="lazyload" data-src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, config('filesize.medium.0'), config('filesize.medium.1') ) ) ) }}" alt="{{ $row->feature_image_alt ??  $row->title }}" />
                                                     @if( $row->discount )
                                                         <div class="sale-label discount">
                                                             <span>-{{ $row->discount }}%</span>
