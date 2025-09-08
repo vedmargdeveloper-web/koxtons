@@ -49,7 +49,7 @@
 										<td><a href="{{ url($var->url) }}">{{ $var->title }}</a></td>
 										<td>
 											<a href="{{ url($var->url) }}">
-												<img width="50" src="{{ $var->feature_image }}">
+												<img width="50" src="{{ $var->feature_image }}" alt="{{ $var->feature_image_alt ?? 'Feature Image' }}">
 											</a>
 										</td>
 										<td><span class="fas fa-rupee-sign"></span> {{ round($var->price,0) }}</td>

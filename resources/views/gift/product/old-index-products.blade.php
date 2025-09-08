@@ -370,7 +370,7 @@
                                                             <?php if($row->feature_image): ?>
                                                             <img class="lazyload"
                                                                 data-src="{{ asset('public/' . product_file(thumb($row->feature_image, config('filesize.thumbnail.0'), config('filesize.thumbnail.1')))) }}"
-                                                                alt="">
+                                                                alt="{{ $row->feature_image_lt ?? $row->title }}">
                                                             <?php else: ?>
                                                             <img class="lazyload"
                                                                 data-src="http://via.placeholder.com/350x350?text=Clothing%20Mantra">
@@ -476,7 +476,7 @@
                                                 <a href="{{ $url }}">
                                                     @if ($d->feature_image and $d->feature_image != '-300x300.')
                                                         <img
-                                                            src="{{ asset('public/' . public_file(thumb($d->feature_image, config('filesize.medium.0'), config('filesize.medium.1')))) }}" alt="{{ $d->title ?? 'Product image' }}">
+                                                            src="{{ asset('public/' . public_file(thumb($d->feature_image, config('filesize.medium.0'), config('filesize.medium.1')))) }}" alt="{{ $d->feature_image_lt ?? $d->title }}">
                                                     @else
                                                         <img src="https://via.placeholder.com/300x300?text={{ $d->name }}"
                                                             alt="koxton">
@@ -543,10 +543,10 @@
                                                             <a
                                                                 href="{{ route('product.view', [$row->product_category[0]->slug, $row->slug, $row->product_id]) }}">
                                                                 <img src="{{ asset('public/' . product_file(thumb($row->feature_image, config('filesize.medium.0'), config('filesize.medium.1')))) }}"
-                                                                    alt="{{ $row->title ?? 'Product image' }}" title=""
+                                                                    alt="{{ $row->feature_image_lt ?? $row->title }}" title=""
                                                                     class="img-responsive" />
                                                                 <img class="img-responsive hover-img-1"
-                                                                    src="{{ asset('public/' . product_file(thumb($row->feature_image, config('filesize.medium.0'), config('filesize.medium.1')))) }}" />
+                                                                    src="{{ asset('public/' . product_file(thumb($row->feature_image, config('filesize.medium.0'), config('filesize.medium.1')))) }}" alt="{{ $row->feature_image_lt ?? $row->title }}"/>
                                                             </a>
 
                                                         </div>
@@ -629,10 +629,10 @@
                                                             <a
                                                                 href="{{ route('product.view', [$row->product_category[0]->slug, $row->slug, $row->product_id]) }}">
                                                                 <img src="{{ asset('public/' . product_file(thumb($row->feature_image, config('filesize.medium.0'), config('filesize.medium.1')))) }}"
-                                                                    alt="{{ $row->title ?? 'Product image' }}" title=""
+                                                                    alt="{{ $row->feature_image_lt ?? $row->title }}" title=""
                                                                     class="img-responsive" />
                                                                 <img class="img-responsive hover-img-1"
-                                                                    src="{{ asset('public/' . product_file(thumb($row->feature_image, config('filesize.medium.0'), config('filesize.medium.1')))) }}" />
+                                                                    src="{{ asset('public/' . product_file(thumb($row->feature_image, config('filesize.medium.0'), config('filesize.medium.1')))) }}" {{ $row->feature_image_lt ?? $row->title }}/>
                                                             </a>
 
                                                         </div>

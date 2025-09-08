@@ -36,7 +36,7 @@
 							<tr>
 								<td>{{ ++$key }} <input type="checkbox" name="product_ids[]" value="{{ $row->id }}"></td>
 								<td>
-									<img class="img-thumbnail zoomImage" data-src-lg="{{ asset( 'public/'.product_file( $row->feature_image ) ) }}" src="{{ asset( 'public/'.product_file( thumb( $row->feature_image, config('filesize.thumbnail.0'), config('filesize.thumbnail.1') ) ) ) }}">
+									<img class="img-thumbnail zoomImage" data-src-lg="{{ asset( 'public/'.product_file( $row->feature_image ) ) }}" src="{{ asset( 'public/'.product_file( thumb( $row->feature_image, config('filesize.thumbnail.0'), config('filesize.thumbnail.1') ) ) ) }}" alt="{{ $row->feature_image_alt ?? $row->title }}">
 								</td>
 								<td>
 									<div><a href="{{ route('product.edit', $row->id) }}">{{ $row->title }}</a></div>

@@ -178,7 +178,7 @@
 	                	<div class="form-group">
 	                		<div class="row">
 		                		<div class="col-md-4 figure-img">
-									<img class="img-thumbnail" src="{{ asset( 'public/'.product_file( thumb( $product->feature_image, config('filesize.thumbnail.0'), config('filesize.thumbnail.1') ) ) ) }}">
+									<img class="img-thumbnail" src="{{ asset( 'public/'.product_file( thumb( $product->feature_image, config('filesize.thumbnail.0'), config('filesize.thumbnail.1') ) ) ) }}" alt="{{ $product->feature_image_alt ?? $product->title}}">
 									<input type="hidden" name="feature_image" value="{{ $product->feature_image }}">
 									<a role="button" class="removeImage"><span class="fa fa-close"></span></a>
 								</div>

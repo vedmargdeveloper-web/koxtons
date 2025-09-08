@@ -100,7 +100,7 @@
 										</li>
 									</ul>
 								</td>
-								<td><img class="img-thumbnail" src="{{ asset( 'public/' . public_file( thumb( $row->image, 130, 140 ) ) ) }}" alt="{{ $row->image_alt }}"></td>
+								<td><img class="img-thumbnail" src="{{ asset( 'public/' . public_file( thumb( $row->image, 130, 140 ) ) ) }}" alt="{{ $row->image_alt  ?? $row->title}}"></td>
 								<td>{{ ucfirst($row->status) }}</td>
 								<td>{{ date('d, M Y H:i', strtotime($row->created_at ) ) }}</td>
 							</tr>

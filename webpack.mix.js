@@ -45,6 +45,10 @@ mix.scripts([
     'assets/js/template.js'
 ], 'public/js/app.min.js'); 
 
-mix.version();
+// mix.version();
+if (mix.inProduction()) {
+    mix.version();
+}
+
 
 

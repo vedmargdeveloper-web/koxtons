@@ -111,7 +111,7 @@
 							@endif
 							@if( $slide->image )
 								<input type="hidden" name="filename" value="{{ $slide->image }}">
-								<img src="{{ asset( 'public/' . public_file( thumb( $slide->image, 130, 140 ) ) ) }}" alt="{{ $slide->title ?? 'Slider Image' }}">
+								<img src="{{ asset( 'public/' . public_file( thumb( $slide->image, 130, 140 ) ) ) }}" alt="{{ $slide->image_alt ??  $slide->title }}">
 							@endif
 						</div>
 					@endif

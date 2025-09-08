@@ -236,7 +236,7 @@
 											<div class="form-group">
 												<div class="row">
 													<div class="col-md-4 figure-img">
-														<img class="img-thumbnail" src="{{ asset( 'public/'. product_file( thumb( $product->feature_image, config('filesize.medium.0'), config('filesize.medium.1') ) ) ) }}" alt="{{ $product->feature_image ?? 'Feature Image' }}">
+														<img class="img-thumbnail" src="{{ asset( 'public/'. product_file( thumb( $product->feature_image, config('filesize.medium.0'), config('filesize.medium.1') ) ) ) }}" alt="{{ $product->feature_image_alt ?? 'Feature Image' }}">
 														<input type="hidden" name="feature_image" value="{{ $product->feature_image }}">
 														<a role="button" class="removeImage"><span class="fa fa-close"></span></a>
 													</div>
@@ -468,7 +468,7 @@
 													<div class="col-md-2">
 														@foreach($set_img as $key1)
 														<div class="form-group display-flex">
-															<img src="{{url('public/assets/products/images/'.$key1)}}" style="width: 50px; height: 50px;" alt="{{ $key1->color ?? 'Product Image' }}">
+															<img src="{{url('public/assets/products/images/'.$key1)}}" style="width: 50px; height: 50px;" alt="{{ $key1->color_image_alt ?? 'Product Image' }}">
 														</div>
 														@endforeach
 													</div>
@@ -1008,7 +1008,7 @@
 												@if(isset($json->size_image) && !empty($json->size_image))
 												<input type="hidden" name="old_custom_size_image[]" value="{{ htmlspecialchars($json->size_image, ENT_QUOTES, 'UTF-8') }}">
 												<div class="form-group display-flex">
-													<img src="{{ url('public/assets/products/images/' . $json->size_image) }}" style="width: 50px; height: 50px;" alt="Product Attribute Size Image">
+													<img src="{{ url('public/assets/products/images/' . $json->size_image) }}" style="width: 50px; height: 50px;" alt="{{ $jason->custom_size_image_alt ?? 'Product Attribute Size Image' }}">
 												</div>
 												@else
 												<input type="hidden" name="old_custom_size_image[]" value="">
@@ -1079,7 +1079,7 @@
 									@foreach( $files as $file )
 									{{-- @if( $file->type === 'gallery' ) --}}
 									<div class="col-md-2 mb-1 figure-img">
-										<img class="img-thumbnail" src="{{ asset('public/' . product_file( thumb( $file, config('filesize.thumbnail.0'), config('filesize.thumbnail.1') ) ) ) }}" alt="{{ $product->file_alt }}">
+										<img class="img-thumbnail" src="{{ asset('public/' . product_file( thumb( $file, config('filesize.thumbnail.0'), config('filesize.thumbnail.1') ) ) ) }}" alt="{{ $product->file_alt ?? '' }}">
 										<input type="hidden" name="gallery[]" value="{{ $file }}">
 										<a role="button" class="removeImage"><span class="fa fa-close"></span></a>
 									</div>

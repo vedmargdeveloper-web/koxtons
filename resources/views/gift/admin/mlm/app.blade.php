@@ -20,6 +20,11 @@
   <!-- bootstrap css -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+
+  <!--for minify css -->
+   {{--CSS Load --}}
+   <link rel="stylesheet" href="{{ mix('css/app.min.css') }}">
+
   <!-- fontawesome css -->
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/style.css?v='.time()) }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/design.css?v='.time()) }}">
@@ -169,6 +174,9 @@
 
     <script src="//code.jquery.com/jquery.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+      {{-- JS Load --}}
+    <script src="{{ mix('js/app.min.js') }}"></script>
 
     <script type="text/javascript" src="{{ asset('assets/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/DataTables/DataTables-1.10.18/js/dataTables.bootstrap4.min.js') }}"></script>

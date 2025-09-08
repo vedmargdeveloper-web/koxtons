@@ -249,7 +249,7 @@
 															</ul>
 														</td>
 														<td>{{ $row->see_more_link }}</td>
-														<td><img class="img-thumbnail" src="{{ asset( 'public/' . public_file( thumb( $row->image, 130, 140 ) ) ) }}"></td>
+														<td><img class="img-thumbnail" src="{{ asset( 'public/' . public_file( thumb( $row->image, 130, 140 ) ) ) }}" alt="{{ $row->image_alt ?? $row->title }}"></td>
 														<td>{{ ucfirst($row->status) }}</td>
 														<td>{{ date('d, M Y H:i', strtotime($row->created_at ) ) }}</td>
 													</tr>
@@ -312,7 +312,7 @@
 															</ul>
 														</td>
 														<td>{{ $row->see_more_link }}</td>
-														<td><img class="img-thumbnail" src="{{ asset( 'public/' . public_file( thumb( $row->image, 130, 140 ) ) ) }}"></td>
+														<td><img class="img-thumbnail" src="{{ asset( 'public/' . public_file( thumb( $row->image, 130, 140 ) ) ) }}" {{ $row->image_alt ?? $row->title }}></td>
 														<td>{{ ucfirst($row->status) }}</td>
 														<td>{{ date('d, M Y H:i', strtotime($row->created_at ) ) }}</td>
 													</tr>
@@ -376,7 +376,7 @@
 															</ul>
 														</td>
 														<td>{{ $row->see_more_link }}</td>
-														<td><img class="img-thumbnail" src="{{ asset( 'public/' . public_file( thumb( $row->image, 130, 140 ) ) ) }}"></td>
+														<td><img class="img-thumbnail" src="{{ asset( 'public/' . public_file( thumb( $row->image, 130, 140 ) ) ) }}" {{ $row->image_alt ?? $row->title }}></td>
 														<td>{{ ucfirst($row->status) }}</td>
 														<td>{{ date('d, M Y H:i', strtotime($row->created_at ) ) }}</td>
 													</tr>
@@ -439,7 +439,7 @@
 															</ul>
 														</td>
 														<td>{{ $row->see_more_link }}</td>
-														<td><img class="img-thumbnail" src="{{ asset( 'public/' . public_file( thumb( $row->image, 130, 140 ) ) ) }}"></td>
+														<td><img class="img-thumbnail" src="{{ asset( 'public/' . public_file( thumb( $row->image, 130, 140 ) ) ) }}" {{ $row->image_alt ?? $row->title }}></td>
 														<td>{{ ucfirst($row->status) }}</td>
 														<td>{{ date('d, M Y H:i', strtotime($row->created_at ) ) }}</td>
 													</tr>
@@ -502,7 +502,7 @@
 															</ul>
 														</td>
 														<td>{{ $row->see_more_link }}</td>
-														<td><img class="img-thumbnail" src="{{ asset( 'public/' . public_file( thumb( $row->image, 130, 140 ) ) ) }}"></td>
+														<td><img class="img-thumbnail" src="{{ asset( 'public/' . public_file( thumb( $row->image, 130, 140 ) ) ) }}" {{ $row->image_alt ?? $row->title }}></td>
 														<td>{{ ucfirst($row->status) }}</td>
 														<td>{{ date('d, M Y H:i', strtotime($row->created_at ) ) }}</td>
 													</tr>

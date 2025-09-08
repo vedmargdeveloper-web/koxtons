@@ -123,13 +123,13 @@
 								<span class="label-warning">{{ $errors->first('feature_image') }}</span>
 							@endif
 							@if( $post->feature_image )
-								<img class="img-thumbnail mt-2" src="{{ asset( 'public/' . post_file( thumb( $post->feature_image, 260, 200 ) ) ) }}" alt="{{ $post->feature_image_alt }}">
+								<img class="img-thumbnail mt-2" src="{{ asset( 'public/' . post_file( thumb( $post->feature_image, 260, 200 ) ) ) }}" alt="{{ $post->feature_image_alt ?? $post->title}}">
 								<input type="hidden" name="filename" value="{{ $post->feature_image }}">
 							@endif
 						</div>
 						<div class="form-group">
 							<label>Feature Image Alt</label>
-							<input type="text" name="feature_image_alt" class="form-control" value="{{ old('feature_image_alt') ? old('feature_image_alt') : $post->feature_image_alt }}">
+							<input type="text" name="feature_image_alt" class="form-control" value="{{ old('feature_image_alt') ? old('feature_image_alt') : $post->feature_image_alt ?? $post->title}}">
 							@if( $errors->has('feature_image_alt') )
 								<span class="label-warning">{{ $errors->first('feature_image_alt') }}</span>
 							@endif

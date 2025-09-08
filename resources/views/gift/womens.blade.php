@@ -78,7 +78,7 @@
                                 <div class="product-item-inner">
                                     <div class="product-img-wrap">
                                         <a href="{{ url('/' .$category->slug . '/' . $row->slug . '/' . $row->product_id . '?source=home') }}">
-                                            <img src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, 250, 300 ) ) ) }}" alt="{{ $row->title }}">
+                                            <img src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, 250, 300 ) ) ) }}" alt="{{ $row->feature_image_alt ?? $row->title }}">
                                             @if( $row->discount )
                                                 <div class="sale-label discount">
                                                     <span>-{{ $row->discount }}%</span>
@@ -182,7 +182,7 @@
                                 <div class="product-item-inner">
                                     <div class="product-img-wrap">
                                         <a href="{{ url('/' .$category->slug . '/' . $row->slug . '/' . $row->product_id . '?source=home') }}">
-                                            <img src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, 250, 300 ) ) ) }}" alt="{{ $row->title }}">
+                                            <img src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, 250, 300 ) ) ) }}" alt="{{ $row->feature_image ?? $row->title }}">
                                             @if( $row->discount )
                                                 <div class="sale-label discount">
                                                     <span>-{{ $row->discount }}%</span>

@@ -181,7 +181,7 @@
                                                         <a
                                                             href="{{ route('product.view', [$row->product_category[0]->slug, $row->slug, $row->product_id]) }}">
                                                             <img src="{{ asset('public/' . product_file(thumb($row->feature_image, config('filesize.thumbnail.0'), config('filesize.thumbnail.1')))) }}"
-                                                                 alt="{{ $row->title ?? 'Product Image' }}">
+                                                                 alt="{{ $row->feature_image_alt ?? $row->title }}">
                                                             @if ($row->discount)
                                                                 <div class="sale-label discount">
                                                                     <span>-{{ $row->discount }}%</span>
@@ -282,10 +282,10 @@
                                                         <a
                                                             href="{{ route('product.view', [$row->product_category[0]->slug, $row->slug, $row->product_id]) }}">
                                                             <img src="{{ asset('public/' . product_file(thumb($row->feature_image, config('filesize.medium.0'), config('filesize.medium.1')))) }}"
-                                                              alt="{{ $row->title ?? 'Product Image' }}"  title=""
+                                                              alt="{{ $row->feature_image_alt ?? '' }}"  title=""
                                                                 class="img-responsive" />
                                                             <img class="img-responsive hover-img-1"
-                                                                src="{{ asset('public/' . product_file(thumb($row->feature_image, config('filesize.medium.0'), config('filesize.medium.1')))) }}"   alt="{{ $row->title ?? 'Product Image' }}" />
+                                                                src="{{ asset('public/' . product_file(thumb($row->feature_image, config('filesize.medium.0'), config('filesize.medium.1')))) }}"   alt="{{ $row->feature_image_alt ?? '' }}" />
                                                         </a>
 
                                                     </div>
@@ -383,10 +383,10 @@
                                                         <a
                                                             href="{{ route('product.view', [$row->product_category[0]->slug, $row->slug, $row->product_id]) }}">
                                                             <img src="{{ asset('public/' . product_file(thumb($row->feature_image, config('filesize.medium.0'), config('filesize.medium.1')))) }}"
-                                                               alt="{{ $row->title ?? 'Product Image' }}" title=""
+                                                               alt="{{ $row->feature_image_alt ?? '' }}" title=""
                                                                 class="img-responsive" />
                                                             <img class="img-responsive hover-img-1"
-                                                                src="{{ asset('public/' . product_file(thumb($row->feature_image, config('filesize.medium.0'), config('filesize.medium.1')))) }}" alt="{{ $row->title ?? 'Product Image' }}" />
+                                                                src="{{ asset('public/' . product_file(thumb($row->feature_image, config('filesize.medium.0'), config('filesize.medium.1')))) }}" alt="{{ $row->feature_image_alt ?? '' }}" />
                                                         </a>
 
                                                     </div>
@@ -464,10 +464,10 @@
                                                         <a
                                                             href="{{ route('product.view', [$row->product_category[0]->slug, $row->slug, $row->product_id]) }}">
                                                             <img src="{{ asset('public/' . product_file(thumb($row->feature_image, config('filesize.medium.0'), config('filesize.medium.1')))) }}"
-                                                               alt="{{ $row->title ?? 'Product Image' }}" title=""
+                                                               alt="{{ $row->feature_image_alt ?? '' }}" title=""
                                                                 class="img-responsive" />
                                                             <img class="img-responsive hover-img-1"
-                                                                src="{{ asset('public/' . product_file(thumb($row->feature_image, config('filesize.medium.0'), config('filesize.medium.1')))) }}"  alt="{{ $row->title ?? 'Product Image' }}"/>
+                                                                src="{{ asset('public/' . product_file(thumb($row->feature_image, config('filesize.medium.0'), config('filesize.medium.1')))) }}"  alt="{{ $row->feature_image_alt ?? '' }}"/>
                                                         </a>
                                                     </div>
                                                 </div>

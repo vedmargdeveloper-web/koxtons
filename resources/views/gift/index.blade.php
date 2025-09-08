@@ -24,7 +24,7 @@
                     data-loop="true">
                     @foreach( $slides as $row )
                       <div class="item">
-                        <img class="lazyload" data-src="{{ asset( 'public/' . public_file( $row->image ) ) }}">
+                        <img class="lazyload" data-src="{{ asset( 'public/' . public_file( $row->image ) ) }}" alt="{{ $row->image_alt ?? '' }}">
                         <div class="description {{ $row->position }}"> 
                             @if( $row->title )
                                 <h3 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOutDown">
@@ -117,7 +117,7 @@
                                     <a href="{{ route('product.view', [$cat_slug, $row->slug, $row->product_id]) }}">
                                         <div class="product-item-inner">
                                             <div class="product-img-wrap">
-                                                <img class="lazyload" data-src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, config('filesize.medium.0'), config('filesize.medium.1') ) ) ) }}" alt="">
+                                                <img class="lazyload" data-src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, config('filesize.medium.0'), config('filesize.medium.1') ) ) ) }}" alt="{{ $row->feature_image_alt ?? '' }}">
                                                 @if( $row->discount )
                                                     <div class="sale-label discount">
                                                         <span>-{{ $row->discount }}%</span>
@@ -282,7 +282,7 @@
                                         <a href="{{ route('product.view', [$cat_slug, $row->slug, $row->product_id]) }}">
                                             <div class="product-item-inner">
                                                 <div class="product-img-wrap">
-                                                    <img class="lazyload" data-src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, config('filesize.medium.0'), config('filesize.medium.1') ) ) ) }}" alt="">
+                                                    <img class="lazyload" data-src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, config('filesize.medium.0'), config('filesize.medium.1') ) ) ) }}" alt="{{ $row->feature_image_alt ?? '' }}">
                                                     @if( $row->discount )
                                                         <div class="sale-label discount">
                                                             <span>-{{ $row->discount }}%</span>
@@ -374,7 +374,7 @@
                                         <a href="{{ route('product.view', [$cat_slug, $row->slug, $row->product_id]) }}">
                                             <div class="product-item-inner">
                                                 <div class="product-img-wrap">
-                                                    <img class="lazyload" data-src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, config('filesize.medium.0'), config('filesize.medium.1') ) ) ) }}" alt="">
+                                                    <img class="lazyload" data-src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, config('filesize.medium.0'), config('filesize.medium.1') ) ) ) }}" alt="{{ $row->feature_image_alt ?? '' }}">
                                                     @if( $row->discount )
                                                         <div class="sale-label discount">
                                                             <span>-{{ $row->discount }}%</span>

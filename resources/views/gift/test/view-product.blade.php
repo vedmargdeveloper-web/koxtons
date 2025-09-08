@@ -58,7 +58,7 @@
                         <!-- Slick Image Slider -->
                         <div class="product-image-slider product-image-gallery" id="product-image-gallery" data-pswp-uid="3">
                             <div class="item">
-                                <img id="img_01" src="{{ asset( 'public/'. product_file( $product->feature_image ) ) }}" data-zoom-image="{{ asset( 'public/'. product_file( $product->feature_image ) ) }}"/>
+                                <img id="img_01" src="{{ asset( 'public/'. product_file( $product->feature_image ) ) }}" data-zoom-image="{{ asset( 'public/'. product_file( $product->feature_image ) ) }}" alt="{{ $product->feature_image_lt ?? $product->title }}"/>
                             </div>
                         </div>
                         <!-- End Slick Image Slider -->
@@ -76,7 +76,7 @@
                             @foreach( $files as $file )
                                  <div class="item">
                                     <a href="#" data-image="{{ asset( 'public/'. product_file( $file ) ) }}" data-zoom-image="{{ asset( 'public/'. product_file( $file ) ) }}">
-                                        <img id="img_01" src="{{ asset( 'public/'. product_file( thumb( $file, 130, 140 ) ) ) }}" />
+                                        <img id="img_01" src="{{ asset( 'public/'. product_file( thumb( $file, 130, 140 ) ) ) }}"  alt="{{ $product->file_alt ?? '' }}"/>
                                     </a>
                                 </div>                                    
                             @endforeach
@@ -95,7 +95,7 @@
                         <div class="product-image-slider product-image-gallery" id="product-image-gallery" data-pswp-uid="3">
                             <div class="item">
                                 <div class="" data-src="{{ asset( 'public/'. product_file( $product->feature_image ) ) }}" data-image="{{ asset( 'public/'. product_file( $product->feature_image ) ) }}">
-                                    <img class="" src="{{ asset( 'public/'. product_file( $product->feature_image ) ) }}">
+                                    <img class="" src="{{ asset( 'public/'. product_file( $product->feature_image ) ) }}" alt="{{ $product->feature_image_alt ?? $product->title }}">
                                 </div>
                             </div>
                             @if( isset($product->media[0]->files) )
@@ -103,7 +103,7 @@
                                 @foreach( $files as $file )
                                     <div class="item">
                                         <div class="" data-src="{{ asset( 'public/'. product_file( $file ) ) }}" data-image="{{ asset( 'public/'. product_file( $file ) ) }}">
-                                        <img class="" src="{{ asset( 'public/'. product_file( $file ) ) }}">
+                                        <img class="" src="{{ asset( 'public/'. product_file( $file ) ) }}" alt="{{ $product->file_alt ?? '' }}">
                                         </div>
                                     </div>
                                 @endforeach
@@ -115,13 +115,13 @@
                     <!-- Slick Thumb Slider -->
                     <div class="product-image-slider-thumbnails">
                         <div class="item">
-                            <img src="{{ $image_url }}" alt="{{ ucwords( $product->title ) }}"/>
+                            <img src="{{ $image_url }}" alt="{{ ucwords( $product->feature_image_alt ?? $product->title ) }}"/>
                         </div>
                         @if( isset($product->media[0]->files) )
                             <?php $files = explode(',', $product->media[0]->files); ?>
                             @foreach( $files as $file )
                                  <div class="item">
-                                    <img src="{{ asset( 'public/'. product_file( thumb( $file, 130, 140 ) ) ) }}" alt="{{ ucwords( $product->title ) }}" />
+                                    <img src="{{ asset( 'public/'. product_file( thumb( $file, 130, 140 ) ) ) }}" alt="{{ ucwords($product->feature_image_alt ?? $product->title ) }}" />
                                 </div>
                             @endforeach
                         @endif
@@ -423,7 +423,7 @@
                             <div class="product-item-inner">
                                 <div class="product-img-wrap">
                                     <a href="{{ url('/'.$category->slug.'/'.$row->slug.'/'.$row->product_id.'?source=category') }}">
-                                    <img src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, 260, 350 ) ) ) }}" alt="{{ $row->title }}">
+                                    <img src="{{ asset( 'public/'. product_file( thumb( $row->feature_image, 260, 350 ) ) ) }}" alt="{{ $row->feature_image_alt ?? $row->title }}">
                                     @if( $row->discount )
                                         <div class="sale-label discount">
                                             <span>{{ $row->discount }}% off</span>

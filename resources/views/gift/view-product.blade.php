@@ -72,7 +72,7 @@
                             <div class="product-image-slider product-image-gallery" id="product-image-gallery" data-pswp-uid="3">
                                 <div class="item">
                                     <a class="product-gallery-item" href="{{ asset( 'public/'. product_file( $product->feature_image ) ) }}" data-size="" data-med="{{ asset( 'public/'. product_file( $product->feature_image ) ) }}" data-med-size="">
-                                        <img src="{{ asset( 'public/'. product_file( $product->feature_image ) ) }}" alt="image 1" />
+                                        <img src="{{ asset( 'public/'. product_file( $product->feature_image ) ) }}" alt="{{ $row->feature_image_alt ?? $row->title }}" />
                                     </a>
                                 </div>
 
@@ -85,7 +85,7 @@
                                             @foreach( $files as $file )
                                                 <div class="item">
                                                     <a class="product-gallery-item" href="{{ asset( 'public/'. product_file( $file ) ) }}" data-size="" data-med="{{ asset( 'public/'. product_file( $file ) ) }}" data-med-size="">
-                                                        <img src="{{ asset( 'public/'. product_file( $file ) ) }}" alt="image 1" />
+                                                        <img src="{{ asset( 'public/'. product_file( $file ) ) }}" alt="{{ $product->file_alt ?? 'Gallery Image' }}" />
                                                     </a>
                                                 </div>
                                             @endforeach
@@ -109,7 +109,7 @@
                                         <?php $files = explode(',', $media->files); ?>
                                         @foreach( $files as $file )
                                              <div class="item">
-                                                <img src="{{ asset( 'public/'. product_file( thumb( $file, 130, 140 ) ) ) }}"  alt="{{ $media->title ?? 'Gallery Image' }}" title="{{ $media->title ?? '' }}" />
+                                                <img src="{{ asset( 'public/'. product_file( thumb( $file, 130, 140 ) ) ) }}"  alt="{{ $product->file_alt ?? 'Gallery Image' }}" title="{{ $media->title ?? '' }}" />
                                             </div>                                    
                                         @endforeach
                                     @endif
@@ -173,7 +173,7 @@
                                 @if( $video )
                                 <p>
                                     <a role="button" title="Watch Video" class="product-video">
-                                        <img style="width:30px;" src="{{ asset('assets/img/video-icon.png') }}">
+                                        <img style="width:30px;" src="{{ asset('assets/img/video-icon.png') }}" alt="{{ $product->file_alt ?? '' }}">
                                     </a>
                                 </p>
                                 @endif
@@ -351,7 +351,7 @@
                                             <div class="product-item-inner">
                                                 <div class="product-img-wrap">
                                                     <a href="{{ url('/'.$category_slug.'/'.$frequently->slug.'/'.$frequently->product_id.'?source=product') }}">
-                                                    <img src="{{ asset( 'public/'. product_file( thumb( $frequently->feature_image, 130, 140 ) ) ) }}" alt="{{ $frequently->title }}">
+                                                    <img src="{{ asset( 'public/'. product_file( thumb( $frequently->feature_image, 130, 140 ) ) ) }}" alt="{{ $frequently->feature_image_alt ?? $frequently->title }}">
                                                     @if( $frequently->discount )
                                                         <div class="sale-label discount">
                                                             <span>{{ $frequently->discount }}% off</span>

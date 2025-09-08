@@ -39,7 +39,7 @@
                                 <div class="blog-info">
                                     <div class="image">
                                         <div class="swiper-slide text-center Main-banner1">
-                                            <img src="{{ asset( 'public/' . public_file( $key->image ) ) }}"  alt="{{ $key->name ?? 'Client Logo' }}" class="img-responsive" />
+                                            <img src="{{ asset( 'public/' . public_file( $key->image ) ) }}"  alt="{{ $key->image_alt ?? 'Client Logo' }}" class="img-responsive" />
                                         </div>
                                     </div>
                                 </div>

@@ -297,7 +297,7 @@
                                     <?php $product = App\model\Product::with('product_category')->where(['id' => $pro->product_id, 'status' => 'active'])->first(); ?>
                                     @if( $product && isset($product->product_category[0]->slug) )
                                         <div class="d-flex flex-column flex-sm-row align-items-sm-center mb-3">
-                                            <img class="avatar-lg mb-3 mb-sm-0 rounded mr-sm-3" src="{{ asset( 'public/'. product_file( thumb( $product->feature_image, 130, 140 ) ) ) }}" alt="">
+                                            <img class="avatar-lg mb-3 mb-sm-0 rounded mr-sm-3" src="{{ asset( 'public/'. product_file( thumb( $product->feature_image, 130, 140 ) ) ) }}" alt="{{ $product->feature_image_alt ?? $product->title }}">
                                             <div class="flex-grow-1">
                                                 <?php $url = route('product.view',  [$product->product_category[0]->slug, $product->slug, $product->product_id]);
                                                 ?>

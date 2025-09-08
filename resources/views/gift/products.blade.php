@@ -341,7 +341,7 @@
                                                 <div class="product-item-inner">
                                                     <div class="product-img-wrap">
                                                         <img src="{{ asset('public/' . product_file(thumb($row->feature_image, config('filesize.medium.0'), config('filesize.medium.1')))) }}"
-                                                            alt="{{ $row->title ?? 'Product Image' }}">
+                                                            alt="{{ $row->feature_image_alt ?? '' }}">
                                                         @if ($row->discount)
                                                             <div class="sale-label discount">
                                                                 <span>-{{ $row->discount }}%</span>

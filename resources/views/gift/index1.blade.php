@@ -13,7 +13,7 @@
                 <div class="owl-carousel main-carousel owl-theme">
                 @foreach( $slides as $row )
                   <div class="item">
-                    <img src="{{ asset( 'public/' . public_file( $row->image ) ) }}" alt="{{ $row->image_alt ?? $row->title }}">
+                    <img src="{{ asset( 'public/' . public_file( $row->image ) ) }}" alt="{{ $row->image_alt ?? $row->title }}" alt="{{ $row->image_alt ?? '' }}">
                     <h3 data-animation-in="fadeInUp" data-animation-out="animate-out fadeOutDown">
                         {{ $row->title }}
                     </h3>
