@@ -102,7 +102,7 @@
               </li>
 
                <li class="has-children">
-                <a href="#">Products</a>
+                <a href="{{ route('product.index') }}">Products</a>
                 <ul class="sub-menu">
                   <li>
                     <a href="{{ route('product.index') }}">Products</a>
@@ -131,13 +131,6 @@
                 <a href="{{ route('admin.complains') }}">Complains</a>
               </li>
 
-
-
-
-            
-             
-
-              
               <li class="has-children">
                 <a href="{{ route('category.index') }}">Categories</a>
                 <ul class="sub-menu">
