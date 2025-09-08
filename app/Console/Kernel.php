@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
          \App\Console\Commands\MinifyAssets::class,
+         \App\Console\Commands\MinifyAdminAssets::class,
     ];
 
     /**

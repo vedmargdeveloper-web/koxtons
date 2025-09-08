@@ -16,29 +16,30 @@
   <link rel="apple-touch-icon" href="{{ asset('assets/img/favicon.png') }}">
   <base href="{{ admin_url() }}">
   <!-- CSS -->
+  <link href="{{ asset('public/build/admin/css/admin.min.css?v='.time()) }}" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <!-- bootstrap css -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
   <!-- fontawesome css -->
-  <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/style.css?v='.time()) }}">
+  {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/style.css?v='.time()) }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/design.css?v='.time()) }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/multi-select.css?v='.time()) }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/DataTables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('public/styles/vendor/perfect-scrollbar.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/datetimepicker/jquery.datetimepicker.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/select/dist/css/select2.min.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('assets/chosen/chosen.min.css') }}">
-  <script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}"></script>
-  <link rel="stylesheet" type="text/css" href="{{ asset('public/assets/datepicker/dist/css/bootstrap-datepicker.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/chosen/chosen.min.css') }}"> --}}
+  {{-- <script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}"></script> --}}
+  {{-- <link rel="stylesheet" type="text/css" href="{{ asset('public/assets/datepicker/dist/css/bootstrap-datepicker.min.css') }}"> --}}
 
 
 
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css" />
 
 
-  <script type="text/javascript" src="{{ asset('public/chartjs/Chart.bundle.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('public/chartjs/utils.js') }}"></script>
+  {{-- <script type="text/javascript" src="{{ asset('public/chartjs/Chart.bundle.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('public/chartjs/utils.js') }}"></script> --}}
 
 
   
@@ -336,6 +337,8 @@
 
     {{ csrf_field() }}
 
+
+    <script src="{{ asset('public/build/admin/js/admin.min.js?v='.time()) }}"></script>
     
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
@@ -346,16 +349,16 @@
       });
     </script>
 
-    <script type="text/javascript" src="{{ asset('assets/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/DataTables/DataTables-1.10.18/js/dataTables.bootstrap4.min.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('assets/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/DataTables/DataTables-1.10.18/js/dataTables.bootstrap4.min.js') }}"></script> --}}
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
 
- <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
- <script type="text/javascript" src="{{ asset('assets/admin/js/admin-site.js?v='.time()) }}"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+ {{-- <script type="text/javascript" src="{{ asset('assets/admin/js/admin-site.js?v='.time()) }}"></script> --}}
     <script type="text/javascript">
         $(document).ready(function() {
             $('.datatables').DataTable({
@@ -369,7 +372,7 @@
             });
         } );
     </script>
-    <script type="text/javascript" src="{{ asset('assets/datetimepicker/build/jquery.datetimepicker.full.min.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('assets/datetimepicker/build/jquery.datetimepicker.full.min.js') }}"></script> --}}
     <script type="text/javascript">
       $(document).ready(function() {
         jQuery('.datetimepicker').datetimepicker({
@@ -377,7 +380,7 @@
         });
       });
     </script>
-    <script src="{{ asset('public/assets/datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+    {{-- <script src="{{ asset('public/assets/datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script> --}}
     <script type="text/javascript">
         $(document).ready(function() {
             $('.datepicker').datepicker({
@@ -385,15 +388,15 @@
             });
         });
     </script>
-    <script type="text/javascript" src="{{ asset('assets/chosen/chosen.jquery.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('assets/chosen/chosen.jquery.js') }}"></script> --}}
     <script type="text/javascript">
       jQuery(document).ready(function($) {
          $(".multi-selector").chosen({no_results_text: "Oops, nothing found!", width: "95%"});
          $(".chosen").chosen({no_results_text: "Oops, nothing found!", width: "95%"});
       });
     </script>
-    <script type="text/javascript" src="{{ asset('assets/admin/js/jquery.multi-select.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/admin/js/admin.js?v='.time()) }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('assets/admin/js/jquery.multi-select.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/admin/js/admin.js?v='.time()) }}"></script> --}}
     
     <script type="text/javascript" src="{{ asset('assets/tinymce/tinymce.min.js') }}"></script>
     <script type="text/javascript">
