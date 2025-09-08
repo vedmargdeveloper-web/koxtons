@@ -29,32 +29,30 @@
     <meta property="og:description" content="@yield('og-content')" />
     <meta property="og:image" content="@yield('og-image-url')" />
     <meta name="p:domain_verify" content="32800f82a60cc04abfbea651e1f0f89b" />
-
-    <link href="{{ asset('assets/css/design.min.css?v=' . time()) }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/css/responsive.min.css?v=' . time()) }}" rel="stylesheet" type="text/css" />
-
-
-
-    {{-- AM code --}}
-
-
-
-    {{-- MR code --}}
-
+    
+    <link href="{{ asset('public/build/css/app.min.css?v=' . time()) }}" rel="stylesheet">
     <script src="{{ asset('assets/catalog/view/javascript/jquery/jquery-2.1.1.min.js') }}"></script>
-    <link href="{{ asset('assets/catalog/view/javascript/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"
-    media="screen" />
     <script src="{{ asset('assets/catalog/view/javascript/bootstrap/js/bootstrap.min.js') }}"></script>
-    <link href="{{ asset('assets/catalog/view/javascript/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet"
-    type="text/css" />
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&amp;display=swap"
+     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&amp;display=swap"
     rel="stylesheet" />
-    <script src="{{ asset('assets/catalog/view/javascript/jquery/magnific/jquery.magnific-popup.min.js') }}"></script>
+
+{{-- 
+    <link href="{{ asset('assets/css/design.min.css?v=' . time()) }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/responsive.min.css?v=' . time()) }}" rel="stylesheet" type="text/css" /> --}}
+
+   
+    {{-- <link href="{{ asset('assets/catalog/view/javascript/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"
+    media="screen" /> --}}
+    
+    {{-- <link href="{{ asset('assets/catalog/view/javascript/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet"
+    type="text/css" /> --}}
+   
+    {{-- <script src="{{ asset('assets/catalog/view/javascript/jquery/magnific/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('assets/catalog/view/javascript/mahardhi/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/catalog/view/javascript/mahardhi/jquery.elevateZoom.min.js') }}"></script>
+    <script src="{{ asset('assets/catalog/view/javascript/mahardhi/jquery.elevateZoom.min.js') }}"></script> --}}
 
 
-    <link href="{{ asset('assets/catalog/view/theme/mahardhi/stylesheet/mahardhi/mahardhi-font.css') }}"
+    {{-- <link href="{{ asset('assets/catalog/view/theme/mahardhi/stylesheet/mahardhi/mahardhi-font.css') }}"
     rel="stylesheet" />
     <link href="{{ asset('assets/catalog/view/theme/mahardhi/stylesheet/mahardhi/animate.min.css') }}"
     rel="stylesheet" />
@@ -63,7 +61,7 @@
     <link href="{{ asset('assets/catalog/view/theme/mahardhi/stylesheet/mahardhi/owl.theme.default.min.css') }}"
     rel="stylesheet" />
     <link rel="stylesheet" type="text/css"
-    href="{{ asset('assets/catalog/view/javascript/jquery/magnific/magnific-popup.css') }}" />
+    href="{{ asset('assets/catalog/view/javascript/jquery/magnific/magnific-popup.css') }}" /> --}}
 
 
     <style>
@@ -76,26 +74,29 @@
             --border-color: #ebebeb;
         }
     </style>
-    <link href="{{ asset('assets/catalog/my.css?v=' . time()) }}" rel="stylesheet" />
+    {{-- <link href="{{ asset('assets/catalog/my.css?v=' . time()) }}" rel="stylesheet" />
     <link href="{{ asset('assets/catalog/koxton.css?v=' . time()) }}" rel="stylesheet" />
     <link href="{{ asset('assets/catalog/view/theme/mahardhi/stylesheet/stylesheet.css?v=' . time()) }}"
     rel="stylesheet" />
     <link href="{{ asset('assets/catalog/view/javascript/jquery/swiper/css/swiper.min.css') }}" type="text/css"
     rel="stylesheet" media="screen" />
     <link href="{{ asset('assets/catalog/view/javascript/jquery/swiper/css/mycart.css') }}" type="text/css"
-    rel="stylesheet" media="screen" />
-    <script src="{{ asset('assets/catalog/view/javascript/jquery/swiper/js/swiper.jquery.js') }}"></script>
-    <script src="{{ asset('assets/catalog/view/javascript/mahardhi/tabs.js') }}"></script>
-    <script src="{{ asset('assets/catalog/view/javascript/mahardhi/countdown.js') }}"></script>
-    <script src="{{ asset('assets/catalog/view/javascript/mahardhi/jquery.cookie.js') }}"></script>
-    <script src="{{ asset('assets/catalog/view/javascript/common.js') }}"></script>
-    <script src="{{ asset('assets/catalog/view/javascript/mahardhi/jquery-ui.min.js') }}"></script>
-    <script src="{{ asset('assets/catalog/view/javascript/mahardhi/custom.js?v=' . time()) }}"></script>
-    <link rel="stylesheet" type="text/css"
-    href="{{ asset('assets/catalog/view/theme/mahardhi/stylesheet/mahardhi/jquery-ui.min.css') }}" />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    rel="stylesheet" media="screen" /> --}}
+    {{-- <script src="{{ asset('assets/catalog/view/javascript/jquery/swiper/js/swiper.jquery.js') }}"></script> --}}
+    {{-- <script src="{{ asset('assets/catalog/view/javascript/mahardhi/tabs.js') }}"></script> --}}
+   
+    {{-- <script src="{{ asset('assets/catalog/view/javascript/mahardhi/jquery.cookie.js') }}"></script> --}}
+    {{-- <script src="{{ asset('assets/catalog/view/javascript/common.js') }}"></script> --}}
+    {{-- <script src="{{ asset('assets/catalog/view/javascript/mahardhi/jquery-ui.min.js') }}"></script> --}}
+   
+    {{-- <link rel="stylesheet" type="text/css"
+    href="{{ asset('assets/catalog/view/theme/mahardhi/stylesheet/mahardhi/jquery-ui.min.css') }}" /> --}}
+   
     {{-- <link href="{{ asset('assets/catalog/svg/cart.svg') }}" rel="icon" /> --}}
     {{-- <link href="{{ asset('assets/image/catalog/cart.png')}}" rel="icon" /> --}}
+    <script src="{{ asset('assets/catalog/view/javascript/mahardhi/countdown.js') }}"></script>
+    <script src="{{ asset('assets/catalog/view/javascript/mahardhi/custom.js?v=' . time()) }}"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css" />
     <link rel="stylesheet"
@@ -113,17 +114,6 @@
             opacity: 1;
         }
     </style>
-
-
-
-
-
-    {{-- MR code --}}
-
-
-
-
-
 
 
 
@@ -1166,7 +1156,7 @@ $instagram = App\model\Meta::where('meta_name', 'instagram')->value('meta_value'
                 {{ csrf_field() }}
 
 
-                <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                {{-- <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> --}}
                 <!-- bootstrap js -->
                 <script type="text/javascript" src="{{ asset('assets/js/plugins/owl.carousel.min.js') }}"></script>
 
@@ -1197,24 +1187,13 @@ $instagram = App\model\Meta::where('meta_name', 'instagram')->value('meta_value'
                 </script>
                 <!-- custom js -->
                 <script type="text/javascript" src="{{ asset('assets/js/main.min.js?v=' . time()) }}"></script>
-                <script type="text/javascript" src="{{ asset('assets/js/template.js?v=' . time()) }}"></script>
-
-                {{-- AM Code --}}
-
-
-                {{-- MR Code --}}
-
-
-
-
+                {{-- <script type="text/javascript" src="{{ asset('assets/js/template.js?v=' . time()) }}"></script> --}}
                 <script src="{{ asset('assets/koxtonsmart/assets/js/bootstrap.min.js') }}"></script>
-
                 <script src="{{ asset('assets/koxtonsmart/assets/js/jquery-plugin-collection.js') }}"></script>
-
-                <script src="{{ asset('assets/koxtonsmart/assets/js/script.js') }}"></script>
-
+                {{-- <script src="{{ asset('assets/koxtonsmart/assets/js/script.js') }}"></script> --}}
+                <script src="{{ asset('public/build/js/app.min.js?v=' . time()) }}"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/js/lightgallery-all.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js"></script>
+                {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js"></script> --}}
 
                 {{-- MR Code --}}
                 <script type="text/javascript">
